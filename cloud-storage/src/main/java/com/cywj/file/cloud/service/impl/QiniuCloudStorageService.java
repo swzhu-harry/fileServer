@@ -15,9 +15,11 @@ import com.qiniu.http.Response;
 import com.qiniu.util.StringMap;
 
 /**
+ * @author zhushiwu
  * 七牛云存储
  * 文档: http://developer.qiniu.com/code/v7/sdk/java.html
  */
+
 @Service("qiniu")
 public class QiniuCloudStorageService implements CloudStorageService {
 

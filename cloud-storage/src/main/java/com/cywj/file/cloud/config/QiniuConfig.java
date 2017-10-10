@@ -5,6 +5,10 @@ import org.springframework.context.annotation.Configuration;
 
 import lombok.Data;
  
+/**
+ * 七牛配置信息
+ * @author zhushiwu
+ */
 @Data
 @ConfigurationProperties(prefix="qiniu")
 @Configuration

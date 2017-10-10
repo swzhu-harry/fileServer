@@ -6,6 +6,11 @@ import com.qiniu.common.Zone;
 
 import lombok.Getter;
 
+/**
+ * 枚举工具
+ * @author zhushiwu
+ *
+ */
 public class EnumUtil {
 	public enum ZoomEnum{
 		zoom01(Zone.zone0(),"z0","华东"),

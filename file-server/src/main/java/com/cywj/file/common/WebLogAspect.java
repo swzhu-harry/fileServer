@@ -20,8 +20,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import lombok.Data;
-
-
+/**
+ * @author zhushiwu
+ * 日志拦截器
+ */
 @Aspect
 @Component
 public class WebLogAspect  {
@@ -59,6 +61,7 @@ public class WebLogAspect  {
 		}
 		info.startTime = System.currentTimeMillis();
 		threadStartTime.set(info.startTime);
+		log.debug("-------------------- start ----------------------------");
 		log.info("请求参数日志:{} ",gson.toJson(info));
 	}
 	
@@ -79,6 +82,7 @@ public class WebLogAspect  {
 		}
 		
 		log.info("请求结果记录:{} ",gson.toJson(returnInfo));
+		log.debug("-------------------- end ----------------------------");
 	}
 	
 	@AfterThrowing(throwing="error", pointcut="point()")
@@ -97,6 +101,7 @@ public class WebLogAspect  {
 		}
 		
 		log.error("请求异常记录:{} ",gson.toJson(errorInfo), error);
+		log.debug("-------------------- end ----------------------------");
 	}
 	
 	@Data

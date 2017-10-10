@@ -3,7 +3,6 @@ package com.cywj.file.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cywj.file.cloud.service.BaseAnswer;
 import com.cywj.file.service.FileUploadService;
 
-import io.swagger.annotations.Api;
-
 /**
  * @author swzhu
+ * restful 接口
  */
 @Controller
-@Api(tags = { "File upload API v1.0" })
 @RequestMapping(produces="application/json;charset=UTF-8") 
 public class FileUploadController {
 	
@@ -46,9 +43,8 @@ public class FileUploadController {
 	 * @return
 	 */
     @ResponseBody
-	@RequestMapping(value = "/batch/upload", method = RequestMethod.POST)
-	public List<BaseAnswer> handleFileUpload(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("--------------------------");
+	@RequestMapping(value = "/fileserver/upload", method = RequestMethod.POST)
+	public List<BaseAnswer> handleFileUpload(HttpServletRequest request) {
 		return service.uploadBatch(request);
 	}
 	
