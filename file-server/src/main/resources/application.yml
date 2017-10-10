@@ -1,0 +1,43 @@
+#\u6d4b\u8bd5\u73af\u5883
+spring: 
+  profiles: test
+  
+server:
+  port: 8060
+  
+---
+#\u5f00\u53d1\u73af\u5883
+spring:
+  profiles: dev
+
+server:
+  port: 7060
+---
+
+logging: 
+  level:
+    com.cywj.file: debug
+  
+spring:
+  profiles:
+    active: dev
+  application:
+    name: smsDevice
+  http:
+    multipart:
+      max-file-size: 8Mb
+      max-request-size: 9Mb
+      
+qiniu:
+  httpBase: http://oxk05y3qo.bkt.clouddn.com/
+  accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8
+  secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
+  bucket: test
+  zoom: z0
+   
+file:
+  upload:
+    filedir: D:\\temp
+    whiteSuffix: jpg,jsp
+      
+      
