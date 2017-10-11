@@ -64,8 +64,12 @@ qiniu:
 http:
 
     multipart:
+    
       --文件最大设置
-      max-file-size: 8Mb    
+      
+      max-file-size: 8Mb   
+      
       --请求最大设置
+      
       max-request-size: 9Mb 
 
