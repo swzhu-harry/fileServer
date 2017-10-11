@@ -31,17 +31,30 @@ file:
     --配置文件上传白名单，不配置则 全部可上传（后续可根据实际情况 新增或改为黑名单配置）
     
     whiteSuffix: jpg,jsp    
+    
     --枚举值：七牛-qiniu，阿里云-aliyun，腾讯云-qyun,又拍云-upyun 默认qiniu
+    
     server: qiniu 
 
 3、七牛服务配置
+
 qiniu:
-  #七牛下载分配的域名（跟用户相关的）
-  httpBase: http://oxk05y3qo.bkt.clouddn.com/    
-  accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8  #下面两项是授权的key信息
+
+  --七牛下载分配的域名（跟用户相关的）
+  
+  httpBase: http://oxk05y3qo.bkt.clouddn.com/   
+  
+  --下面两项是授权的key信息
+  accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8  
+  
   secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
-  bucket: test   #创建的存储空间
-  zoom: z0   #区域：枚举 z0-华东 z1-华北 z2-华南 na0-北美
+  
+  --创建的存储空间
+  
+  bucket: test 
+  
+  --区域：枚举 z0-华东 z1-华北 z2-华南 na0-北美
+  zoom: z0   
   
   
 4、文件上传大小限制配置
