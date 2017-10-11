@@ -22,41 +22,41 @@ restful 接口：
 
 file: 
 
-  upload:
+    upload:
   
-    --保存上传临时文件目录
+        --保存上传临时文件目录
     
-    filedir: /home/zhushiwu/temp 
+        filedir: /home/zhushiwu/temp 
     
-    --配置文件上传白名单，不配置则 全部可上传（后续可根据实际情况 新增或改为黑名单配置）
+        --配置文件上传白名单，不配置则 全部可上传（后续可根据实际情况 新增或改为黑名单配置）
     
-    whiteSuffix: jpg,jsp    
+        whiteSuffix: jpg,jsp    
     
-    --枚举值：七牛-qiniu，阿里云-aliyun，腾讯云-qyun,又拍云-upyun 默认qiniu
+        --枚举值：七牛-qiniu，阿里云-aliyun，腾讯云-qyun,又拍云-upyun 默认qiniu
     
-    server: qiniu 
+        server: qiniu 
 
 3、七牛服务配置
 
 qiniu:
 
-  --七牛下载分配的域名（跟用户相关的）
+    --七牛下载分配的域名（跟用户相关的）
   
-  httpBase: http://oxk05y3qo.bkt.clouddn.com/   
+    httpBase: http://oxk05y3qo.bkt.clouddn.com/   
   
-  --下面两项是授权的key信息
+    --下面两项是授权的key信息
   
-  accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8  
+    accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8  
   
-  secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
+    secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
   
-  --创建的存储空间
+    --创建的存储空间
   
-  bucket: test 
+    bucket: test 
   
-  --区域：枚举 z0-华东 z1-华北 z2-华南 na0-北美
+    --区域：枚举 z0-华东 z1-华北 z2-华南 na0-北美
   
-  zoom: z0   
+    zoom: z0   
   
   
 4、文件上传大小限制配置
