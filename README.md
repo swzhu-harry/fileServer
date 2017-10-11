@@ -24,15 +24,15 @@ file:
 
   upload:
   
-    #保存上传临时文件目录
+    --保存上传临时文件目录
     
     filedir: /home/zhushiwu/temp 
     
-    #配置文件上传白名单，不配置则 全部可上传（后续可根据实际情况 新增或改为黑名单配置）
+    --配置文件上传白名单，不配置则 全部可上传（后续可根据实际情况 新增或改为黑名单配置）
     
-#   whiteSuffix: jpg,jsp    
-    #枚举值：七牛-qiniu，阿里云-aliyun，腾讯云-qyun,又拍云-upyun 默认qiniu
-#   server: qiniu 
+    whiteSuffix: jpg,jsp    
+    --枚举值：七牛-qiniu，阿里云-aliyun，腾讯云-qyun,又拍云-upyun 默认qiniu
+    server: qiniu 
 
 3、七牛服务配置
 qiniu:
