@@ -45,6 +45,7 @@ qiniu:
   httpBase: http://oxk05y3qo.bkt.clouddn.com/   
   
   --下面两项是授权的key信息
+  
   accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8  
   
   secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
@@ -54,12 +55,17 @@ qiniu:
   bucket: test 
   
   --区域：枚举 z0-华东 z1-华北 z2-华南 na0-北美
+  
   zoom: z0   
   
   
 4、文件上传大小限制配置
+
 http:
+
     multipart:
-      max-file-size: 8Mb    #文件最大设置
-      max-request-size: 9Mb #请求最大设置
+      --文件最大设置
+      max-file-size: 8Mb    
+      --请求最大设置
+      max-request-size: 9Mb 
 
