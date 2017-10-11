@@ -26,7 +26,7 @@ file:
   
         --保存上传临时文件目录
     
-        filedir: /home/zhushiwu/temp 
+        filedir: /xxxx/xxx 
     
         --配置文件上传白名单，不配置则 全部可上传（后续可根据实际情况 新增或改为黑名单配置）
     
@@ -42,13 +42,13 @@ qiniu:
 
     --七牛下载分配的域名（跟用户相关的）
   
-    httpBase: http://oxk05y3qo.bkt.clouddn.com/   
+    httpBase: http://xxxxxxxxx/   
   
     --下面两项是授权的key信息
   
-    accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8  
+    accessKey: xxxxx  
   
-    secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
+    secretKey: xxxxx
   
     --创建的存储空间
   
