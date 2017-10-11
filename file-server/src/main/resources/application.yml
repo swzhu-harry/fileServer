@@ -4,7 +4,11 @@ spring:
   
 server:
   port: 8060
-  
+
+file: 
+  upload:
+    filedir: /home/zhushiwu/temp
+#    whiteSuffix: jpg,jsp 
 ---
 #\u5f00\u53d1\u73af\u5883
 spring:
@@ -12,6 +16,11 @@ spring:
 
 server:
   port: 7060
+  
+file: 
+  upload:
+    filedir: D:\\temp
+#    whiteSuffix: jpg,jsp
 ---
 
 logging: 
@@ -22,22 +31,17 @@ spring:
   profiles:
     active: dev
   application:
-    name: smsDevice
+    name: fileServer
   http:
     multipart:
       max-file-size: 8Mb
       max-request-size: 9Mb
-      
+  thymeleaf: 
+      prefix: classpath:/templates
+     
 qiniu:
   httpBase: http://oxk05y3qo.bkt.clouddn.com/
   accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8
   secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
   bucket: test
   zoom: z0
-   
-file:
-  upload:
-    filedir: D:\\temp
-    whiteSuffix: jpg,jsp
-      
-      

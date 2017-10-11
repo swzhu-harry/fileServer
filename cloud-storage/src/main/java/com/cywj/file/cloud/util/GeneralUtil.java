@@ -1,11 +1,14 @@
 package com.cywj.file.cloud.util;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,7 +36,7 @@ public class GeneralUtil {
 	}
 
 	public static boolean checkWhiteSuffix(String suffix,String whiteSuffix){
-		if(!StringUtils.isEmpty(whiteSuffix)){
+		if(!StringUtils.isBlank(whiteSuffix)){
 			String[] params = whiteSuffix.split(",");
 			Set<String> suffixSets = new HashSet<String>();
 			for (String str : params) {
@@ -44,26 +47,47 @@ public class GeneralUtil {
 		return true;
 	}
 
-	public static  String getKey(String file) {
-		String extention = StringUtils.substringAfterLast(file, ".");
-    	String uuid = UUID.randomUUID().toString().replace("-", "");
-    	StringBuffer sb = new StringBuffer(uuid);
-    	if(StringUtils.isEmpty(extention)){
-    		return sb.toString();
-    	}
-        return sb.append(".").append(extention).toString();
+	public static  String getKey(File file) {
+		try {
+			return getKey(FileUtils.readFileToByteArray(file),file.getName());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return file.getName();
+	}
+	/**
+	 * 文件字节 计算hash，文件内容没变化 hash一样
+	 * @param b
+	 * @param fname
+	 * @return
+	 */
+	public static  String getKey(byte[] b,String fname) {
+		try {
+			StringBuffer sb = new StringBuffer(byteToHexString(b));
+			String extention = StringUtils.substringAfterLast(fname, ".");
+			if(StringUtils.isBlank(extention)){
+				return sb.toString();
+			}
+			return sb.append(".").append(extention).toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fname;
 	}
 	
 	public static File saveToLocal(MultipartFile file, String fileDir) throws Exception {
 		String myFileName = file.getOriginalFilename();
-		if(!StringUtils.isEmpty(myFileName)){
+		if(!StringUtils.isBlank(myFileName)){
 			myFileName = simpFileName(myFileName);
 			// 构造文件path
 			String path = new StringBuffer(fileDir)
 					.append(File.separator).append(myFileName).toString();
 			File localFile = new File(path);
-			touch(localFile);
-			file.transferTo(localFile);
+			BufferedOutputStream out = new BufferedOutputStream(
+					new FileOutputStream(localFile));
+			out.write(file.getBytes());
+			out.flush();
+			out.close();
 			
 			return localFile;
 		}
@@ -91,4 +115,21 @@ public class GeneralUtil {
 		}
 		return myFileName;
 	}
+	
+	private static String byteToHexString(byte[] bytes) throws Exception {
+		MessageDigest complete = MessageDigest.getInstance("MD5");
+		complete.update(bytes, 0, bytes.length); 
+		
+		byte[] di = complete.digest();
+		char[] Digit = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+		char[] ob = new char[2];
+	
+		StringBuffer sb = new StringBuffer();
+		for (int i=0; i < di.length; i++) {  
+			ob[0] = Digit[( di[i] >>> 4) & 0X0f];
+			ob[1] = Digit[ di[i] & 0X0F];
+			sb.append(ob);
+	    }  
+		return sb.toString();
+	} 
 }

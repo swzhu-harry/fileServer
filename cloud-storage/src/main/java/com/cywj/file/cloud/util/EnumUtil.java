@@ -2,6 +2,10 @@ package com.cywj.file.cloud.util;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.cywj.file.cloud.service.impl.AliyunCloudStorageService;
+import com.cywj.file.cloud.service.impl.QiniuCloudStorageService;
+import com.cywj.file.cloud.service.impl.QyunCloudStorageService;
+import com.cywj.file.cloud.service.impl.UpyunCloudStorageService;
 import com.qiniu.common.Zone;
 
 import lombok.Getter;
@@ -24,7 +28,7 @@ public class EnumUtil {
 		private String zoomCode;
 		@Getter
 		private String decs;
-		ZoomEnum(Zone z,String zoomCode,String decs){
+		private ZoomEnum(Zone z,String zoomCode,String decs){
 			this.zone = z;
 			this.zoomCode = zoomCode;
 			this.decs = decs;
@@ -60,7 +64,7 @@ public class EnumUtil {
 		private int statusCode;
 		@Getter
 		private String decs;
-		QinuyErrorEnum(int statusCode,String decs){
+		private QinuyErrorEnum(int statusCode,String decs){
 			this.statusCode = statusCode;
 			this.decs = decs;
 		}
@@ -73,6 +77,36 @@ public class EnumUtil {
 				}
 			}
 			return UNKNOW;
+		}
+	}
+	
+	public enum CloudServiceEnum{
+		QINIU(QiniuCloudStorageService.class,"qiniu"),
+		ALI_YUN(AliyunCloudStorageService.class,"aliyun"),
+		Q_YUN(QyunCloudStorageService.class,"qyun"),
+		UP_YUN(UpyunCloudStorageService.class,"upyun"),
+		;
+		
+		@Getter
+		private Class<?> serviceClass;
+		@Getter
+		private String serviceCode;
+		
+		private CloudServiceEnum(Class<?> serviceClass,String serviceCode){
+			this.serviceClass = serviceClass;
+			this.serviceCode = serviceCode;
+		}
+		public static CloudServiceEnum getCloudServiceEnum(String serviceCode)
+		{
+			if(!StringUtils.isBlank(serviceCode)){
+				CloudServiceEnum[] itms = values();
+				for (CloudServiceEnum itm : itms) {
+					if(serviceCode.toString().trim().equalsIgnoreCase(itm.serviceCode)){
+						return itm;
+					}
+				}
+			}
+			return QINIU;
 		}
 	}
 }
