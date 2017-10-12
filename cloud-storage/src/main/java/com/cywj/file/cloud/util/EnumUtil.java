@@ -18,9 +18,9 @@ import lombok.Getter;
 public class EnumUtil {
 	public enum ZoomEnum{
 		zoom01(Zone.zone0(),"z0","华东"),
-		zoom02(Zone.zone0(),"z1","华北"),
-		zoom03(Zone.zone0(),"z2","华南"),
-		zoom04(Zone.zone0(),"na0","北美");
+		zoom02(Zone.zone1(),"z1","华北"),
+		zoom03(Zone.zone2(),"z2","华南"),
+		zoom04(Zone.zoneNa0(),"na0","北美");
 		
 		@Getter
 		private Zone zone;

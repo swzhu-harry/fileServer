@@ -46,8 +46,6 @@ qiniu:
   
     --下面两项是授权的key信息
   
-    accessKey: xxxxx  
-  
     secretKey: xxxxx
   
     --创建的存储空间

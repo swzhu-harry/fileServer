@@ -48,7 +48,7 @@ public class ServiceUtil {
 		return auth.uploadToken(conf.getBucket(), null, EXPIRE_SECONDS, getReturnBodyPolicy());
 	}
 	
-	public BaseAnswer doResult(Response res) throws Exception {
+	public BaseAnswer doResult(Response res,String fname) throws Exception {
 		BaseAnswer ans = new BaseAnswer();
         if (!res.isOK()) {
         	ans.setStatus(-100);
@@ -65,7 +65,7 @@ public class ServiceUtil {
         	ReturnBody re = new Gson().fromJson(res.bodyString(),ReturnBody.class);
     		String url = getDownloadPath(re.getKey());
         	ans.setStatus(200);
-        	ans.setFileName(re.getFname());
+        	ans.setFileName(fname!=null?fname:re.getFname());
         	ans.setUrl(url);
         }
 		return ans;
