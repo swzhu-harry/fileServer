@@ -52,7 +52,7 @@ qiniu:
   
     --创建的存储空间
   
-    bucket: test 
+    bucket: xxx 
   
     --区域：枚举 z0-华东 z1-华北 z2-华南 na0-北美
   
