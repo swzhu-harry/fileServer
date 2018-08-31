@@ -38,10 +38,11 @@ spring:
       max-request-size: 9Mb
   thymeleaf: 
       prefix: classpath:/templates
-     
+
+# ENC 自定义加密实现
 qiniu:
   httpBase: http://oxk05y3qo.bkt.clouddn.com/
-  accessKey: XQG3bWdjVJ4VFQDDXnMwyp9312XC-lsKGl685yA8
-  secretKey: 6jCX1bMJtywthuVzu3CzgQamDNsPZeeq2lYyvKOe
-  bucket: test
-  zoom: z0
+  accessKey: ENC(zLTapMyM2LbMoNemy5rTmMuk2rjPnt2Ey5DauNGW4KG6ypTXsMe+06LKitKS0arfhsau0arMvtmo0LjboMe+0qbJttemz7zgoYjJjtWQzIzesse+2rjGpNiEyrzTttGq2ajJttGgzKDUlMeq1ZrKntS8x4LOhMqo26DJmNuW0JDbvsmY1J7Lrtymy5rTts6216bMqtS8zo7goYjJmNOizJbVhsqo)
+  secretKey: ENC(0KTZgMe+2KLRtNySzL7arseCzqzPit6eyY7VkM+y25bOouCgqs+84KK2yrzdosuQ3ZjOtt+Gz6jgobrOttySxbLYtsy+35DJttG0yorUqMuQ3pTKstq40bTensua2qTGrtew0Zbbvsmi1a7HgtmAyorWqsuQ2ZTJjtmA0argoZzOmOCggsa4zqzOot+ax6rVpM+o4KKix5bZstCG27TMtNmK0IbfuMe+)
+  bucket: ENC(x7TZvNGW4KGIyp7cnNC44KOAy6Q=)
+  zoom: ENC(zpjgoZzRjNisypQ=)
